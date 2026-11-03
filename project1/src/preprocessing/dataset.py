@@ -41,7 +41,7 @@ def preprocess_cases(path: str | Path) -> list[dict]:
             "tokens": result.tokens,
 
             # Para retrieval, com stopwords filtradas em hard coded
-            #"retrieval_tokens": result.retrieval_tokens,
+            "retrieval_tokens": result.retrieval_tokens,
         }
 
         processed_cases.append(processed_case)
