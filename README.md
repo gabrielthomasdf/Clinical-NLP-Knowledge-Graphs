@@ -37,14 +37,14 @@ python -m venv .venv
 # Windows PowerShell: .\.venv\Scripts\Activate.ps1
 python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.14.1
 python -m pip install -e .
-python -m project2_from_project1.scripts.run_full_study --synthetic project2_from_project1/artifacts/demo-input --output-dir project2_from_project1/artifacts/demo-output --max-iterations 20
+mc896-demo
 ```
 
-As saídas incluem `manifest.json` com configuração, partições, versões e hashes; `entities/` e `relations/` com predições e métricas; e `graph/` com `graph.jsonl` nas camadas de menção e conceito. Os diretórios `artifacts/` são ignorados pelo Git. Para reproduzir o estudo com os corpora originais, siga o [guia completo](project2_from_project1/docs/running-the-study.md); ele requer download e preparação dos dados e estima horas de treinamento do CRF.
+O comando imprime uma tabela das quatro abordagens fim a fim e grava tudo em `project2_from_project1/artifacts/portfolio-demo/`. As saídas incluem `output/manifest.json` com configuração, partições, versões e hashes; `output/entities/` e `output/relations/` com predições e métricas; e `output/graph/` com `graph.jsonl` nas camadas de menção e conceito. Os diretórios `artifacts/` são ignorados pelo Git. Use `mc896-demo --help` para escolher outro destino ou limite de iterações. Para reproduzir o estudo com os corpora originais, siga o [guia completo](project2_from_project1/docs/running-the-study.md); ele requer download e preparação dos dados e estima horas de treinamento do CRF.
 
 ### Exemplo observado
 
-Trecho do documento fictício `synthetic:000`, gerado pelo comando acima:
+Trecho do documento fictício `synthetic:000`, gerado em `project2_from_project1/artifacts/portfolio-demo/input/corpus.jsonl`:
 
 ```text
 She reported fatigue and chest pain. No nausea was observed. Asthma caused back pain.

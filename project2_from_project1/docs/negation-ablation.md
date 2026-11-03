@@ -9,8 +9,8 @@ A etapa opcional `negated-finding-consistency-v1` altera **somente** `HAS_FINDIN
 Após instalar as dependências conforme o [README da raiz](../../README.md#executar-sem-dados-clínicos), execute da raiz do repositório:
 
 ```bash
-python -m project2_from_project1.scripts.run_full_study --synthetic project2_from_project1/artifacts/demo-input --output-dir project2_from_project1/artifacts/demo-output --max-iterations 20
-python -m project2_from_project1.scripts.run_negation_ablation --study-output project2_from_project1/artifacts/demo-output --corpus project2_from_project1/artifacts/demo-input/corpus.jsonl --output-dir project2_from_project1/artifacts/negation-ablation
+mc896-demo
+python -m project2_from_project1.scripts.run_negation_ablation --study-output project2_from_project1/artifacts/portfolio-demo/output --corpus project2_from_project1/artifacts/portfolio-demo/input/corpus.jsonl --output-dir project2_from_project1/artifacts/negation-ablation
 ```
 
 O segundo comando usa as predições congeladas pelo primeiro, sem treinar novamente. Produz `report.json`, predições corrigidas e grafos JSONL v2 corrigidos, todos em uma pasta separada. O relatório contém hashes SHA-256 das entradas e saídas, contagens de conflitos e precisão, recall e F1 micro de arestas conceituais antes/depois. Esses números são **secundários**; a avaliação estrita de relações fim a fim continua sendo a métrica principal do estudo.

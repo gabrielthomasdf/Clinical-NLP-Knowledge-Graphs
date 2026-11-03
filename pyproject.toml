@@ -9,6 +9,9 @@ description = "Projetos da disciplina MC896 (monorepo: project1, project2 e proj
 requires-python = ">=3.10"
 dynamic = ["dependencies"]
 
+[project.scripts]
+mc896-demo = "project2_from_project1.scripts.portfolio_demo:main"
+
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements.txt"] }
 

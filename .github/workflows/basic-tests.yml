@@ -21,3 +21,5 @@ jobs:
       - name: Run basic tests
         run: |
           python -m pytest project1/tests/test_preprocessing.py project1/tests/test_web_interface.py project2_from_project1/tests/test_preprocessing.py project2_from_project1/tests/test_entities.py project2_from_project1/tests/test_relations.py project2_from_project1/tests/test_graph_build.py project2_from_project1/tests/test_relation_consistency.py -q
+      - name: Run public synthetic demo
+        run: mc896-demo --output-root /tmp/mc896-demo --max-iterations 2
