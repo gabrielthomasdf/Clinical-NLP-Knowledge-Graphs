@@ -35,23 +35,27 @@ qualidade dos modelos. A mesma costura é testada em `tests/test_full_study.py`.
    `convert_mcrc` do [README](../README.md), que confere o SHA-256 do pickle.
 2. O `mcrc.jsonl` resultante deve ter SHA-256
    `28844ee5c2770024ace12c95026c03e59bd0708e34a16ed05b9bc418799b8050`. A
-   adjudicação versionada (`annotations/entity-gold-v1/adjudication.jsonl`) está
-   vinculada a esse hash. Um arquivo com outros bytes, por exemplo com quebras
-   de linha CRLF, é recusado.
+   O artefato de adjudicação usado no estudo está vinculado a esse hash, mas
+   não é distribuído no fork público. Gere-o conforme
+   [`gold-entity-projection.md`](gold-entity-projection.md) ou forneça uma cópia
+   obtida com autorização. Um arquivo com outros bytes, por exemplo com
+   quebras de linha CRLF, é recusado.
 3. Gere as impressões digitais do MultiCaRe (`scripts.seal`) e o dataset
    congelado (`reproduce_first_milestone prepare`), também descritos no
    README. Os folds devem sair em
    `project2_from_project1/artifacts/first-milestone/frozen-dataset/`, e seu
    manifesto deve registrar o mesmo hash do corpus.
 
-`data/` e `artifacts/` não são versionados porque contêm texto clínico.
+`data/`, `artifacts/` e a adjudicação final não são versionados porque podem
+conter texto clínico ou derivados. O caminho passado em `--adjudication` deve
+apontar para o arquivo local preparado na etapa anterior.
 
 ## 4. Estudo completo
 
 ```bash
 python -m project2_from_project1.scripts.run_full_study \
   --corpus project2_from_project1/data/secure/mcrc.jsonl \
-  --adjudication project2_from_project1/annotations/entity-gold-v1/adjudication.jsonl \
+  --adjudication <caminho-para-adjudicacao-local.jsonl> \
   --frozen-dataset project2_from_project1/artifacts/first-milestone/frozen-dataset \
   --output-dir project2_from_project1/artifacts/study-v1 \
   --workers 5 --threads-per-worker 1

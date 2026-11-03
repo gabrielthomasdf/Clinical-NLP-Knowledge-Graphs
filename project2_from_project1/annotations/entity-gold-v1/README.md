@@ -23,10 +23,11 @@ O corpus lossless original, anotado por humanos, permanece inalterado.
    aliases, seleção plana e ausência de texto clínico nas justificativas.
    `scripts/assemble_gold_adjudication.py` monta e valida o arquivo final.
 
-Cada linha de `adjudication.jsonl` segue `AdjudicationRecord`: dois votos,
-consenso ou terceiro voto, justificativas e o vínculo com fonte, plano,
-versões de segmentação e limite de tokens. As justificativas não reproduzem
-texto clínico.
+O artefato `adjudication.jsonl` não é distribuído no fork público porque suas
+justificativas podem carregar pequenos trechos derivados do corpus. Quando
+gerado localmente, cada linha segue `AdjudicationRecord`: dois votos, consenso
+ou terceiro voto, justificativas e o vínculo com fonte, plano, versões de
+segmentação e limite de tokens.
 
 ## Resultado
 

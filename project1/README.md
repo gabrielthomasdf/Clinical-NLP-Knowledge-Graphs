@@ -1,5 +1,12 @@
 # MC896 - Projeto 1
 
+> **Dados não distribuídos:** o fork público preserva metadados e código, mas
+> removeu de todo o histórico os textos de `data/raw/cases.csv`, os grafos
+> derivados e os slides com capturas. Obtenha os artigos na fonte, confira as
+> licenças registradas em `data/raw/metadata.csv` e mantenha os arquivos locais
+> nos caminhos ignorados pelo Git. A demonstração reproduzível sem dados
+> clínicos está no [README da raiz](../README.md#executar-sem-dados-clínicos).
+
 Extração de informações clínicas do dataset **MultiCaRe** e representação como um **Knowledge Graph**.
 
 ## Estrutura
@@ -350,7 +357,7 @@ A escolha por métodos clássicos torna as decisões mais auditáveis: termos re
 
 ## Resultados
 
-O estado atual do repositório inclui os dois artefatos de grafo esperados, `data/processed/nodes.csv` e `data/processed/edges.csv`, além dos mecanismos para regenerá-los a partir da amostra. O resultado materializa:
+O trabalho acadêmico gerou `data/processed/nodes.csv` e `data/processed/edges.csv`, mas esses derivados não são distribuídos no fork público. Com uma entrada obtida e preparada localmente, os mecanismos do projeto podem regenerar:
 
 - entidades clínicas normalizadas como nós;
 - atributos de proveniência e código quando fornecidos pelo vocabulário;

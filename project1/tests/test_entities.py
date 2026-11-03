@@ -3,11 +3,11 @@ from pathlib import Path
 from project1.src.extraction import Entity, extract_entities
 from project1.src.preprocessing import load_cases
 from project1.src.vocab import load_vocabulary
-from project1.paths import CASES_PATH, VOCAB_DIR
+from project1.paths import VOCAB_DIR
 
 
 VOCABULARY_DIR = VOCAB_DIR
-SAMPLE_CASES_PATH = CASES_PATH
+SAMPLE_CASES_PATH = Path(__file__).parent / "fixtures" / "sample_cases.csv"
 
 # Vocabulários relevantes para extração de entidades "core" (Disease,
 # Symptom, Exam, Treatment/Medication, AnatomicalSite), conforme a issue.
@@ -122,9 +122,9 @@ def test_extract_entities_every_entity_has_a_type():
         assert entity.positions, f"Entidade '{entity.label}' sem posições."
 
 
-def test_extract_entities_on_a_real_case():
+def test_extract_entities_on_a_synthetic_case():
     """
-    Critério de aceite: pelo menos um caso completo do dataset é
+    Critério de aceite: pelo menos um relato fictício completo é
     convertido em entidades.
     """
 
@@ -136,8 +136,7 @@ def test_extract_entities_on_a_real_case():
 
     assert len(entities) > 0
 
-    # Tipos esperados presentes no primeiro caso da amostra (cisto
-    # gástrico/pancreático): pelo menos Symptom, Exam e AnatomicalSite.
+    # Tipos esperados presentes no primeiro relato fictício.
     types_found = {entity.type for entity in entities}
     assert "Symptom" in types_found
     assert "Exam" in types_found

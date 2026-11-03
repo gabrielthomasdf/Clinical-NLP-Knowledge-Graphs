@@ -138,3 +138,11 @@ project2_from_project1/artifacts/
 project2_from_project1/assets/slides/*.pdf
 project2_from_project1/**/*.pkl
 project2_from_project1/**/*.pickle
+
+# Clinical article text and derivatives are intentionally not distributed
+project1/data/raw/cases.csv
+project1/data/processed/nodes.csv
+project1/data/processed/edges.csv
+project1/output/
+project1/assets/slides/Projeto 1 - NLP.pdf
+project2_from_project1/annotations/entity-gold-v1/adjudication.jsonl

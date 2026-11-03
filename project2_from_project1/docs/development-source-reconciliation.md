@@ -11,7 +11,7 @@ Na raiz do repositório, com o ambiente instalado:
 ```powershell
 python -m project2_from_project1.scripts.reconcile_development_source `
   --corpus project2_from_project1/data/secure/mcrc.jsonl `
-  --adjudication project2_from_project1/annotations/entity-gold-v1/adjudication.jsonl `
+  --adjudication <caminho-para-adjudicacao-local.jsonl> `
   --partitions project2_from_project1/artifacts/first-milestone/frozen-dataset/manifest.json `
   --output-dir project2_from_project1/artifacts/development-source-reconciled-v1
 ```
