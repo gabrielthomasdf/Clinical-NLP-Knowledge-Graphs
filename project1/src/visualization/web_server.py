@@ -4,6 +4,8 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
+from project1.paths import CASES_PATH
+
 from project1.src.visualization.graph import load_case_graph
 from project1.src.preprocessing.dataset import preprocess_cases
 from project1.src.retrieval.inverted_index import build_index_from_cases, finalize_index
@@ -30,7 +32,7 @@ def create_request_handler(
     nodes_path: str | Path,
     edges_path: str | Path,
     static_dir: str | Path,
-    cases_path: str | Path,
+    cases_path: str | Path = CASES_PATH,
 ):
     nodes_path = Path(nodes_path)
     edges_path = Path(edges_path)

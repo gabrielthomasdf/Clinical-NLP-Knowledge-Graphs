@@ -50,7 +50,7 @@ Trecho do documento fictício `synthetic:000`, gerado pelo comando acima:
 She reported fatigue and chest pain. No nausea was observed. Asthma caused back pain.
 ```
 
-Na execução local do braço `dictionary+rules` com 20 iterações máximas, o grafo conceitual continha as entidades `fatigue`, `chest pain`, `nausea`, `asthma`, `back pain` e `no`, entre outras, e a relação `CAUSES(asthma, back pain)`. Também gerou `NEGATES(no, nausea)` **e** `HAS_FINDING(Patient, nausea)`: uma contradição a corrigir antes de usar a saída em qualquer cenário clínico. Os detalhes e os comandos para conferir os registros estão em [demonstração reproduzível](project2_from_project1/docs/portfolio-demo.md).
+Na execução local do braço `dictionary+rules` com 20 iterações máximas, o grafo conceitual continha as entidades `fatigue`, `chest pain`, `nausea`, `asthma`, `back pain` e `no`, entre outras, e a relação `CAUSES(asthma, back pain)`. Também gerou `NEGATES(no, nausea)` **e** `HAS_FINDING(Patient, nausea)`. Uma [etapa de consistência opcional](project2_from_project1/docs/negation-ablation.md) resolve o conflito por menção e preserva as predições acadêmicas originais para comparação. Os detalhes do exemplo estão em [demonstração reproduzível](project2_from_project1/docs/portfolio-demo.md).
 
 ## Dados, avaliação e resultados
 
@@ -75,18 +75,18 @@ Os valores de F1 da fixture sintética medem apenas a integração com dados art
 python -m pytest project1/tests/test_preprocessing.py project2_from_project1/tests/test_preprocessing.py project2_from_project1/tests/test_entities.py project2_from_project1/tests/test_relations.py project2_from_project1/tests/test_graph_build.py -q
 ```
 
-`project1/` contém o pipeline clássico, busca e visualização local. `project2_from_project1/` contém contratos, extração supervisionada, avaliação, scripts e documentação do estudo. A interface web atual explora grafos já exportados; ainda não recebe livremente um novo relato para executar os quatro braços. A [integração contínua](.github/workflows/basic-tests.yml) executa os testes básicos em CPU.
+`project1/` contém o pipeline clássico, busca e visualização local. `project2_from_project1/` contém contratos, extração supervisionada, avaliação, scripts e documentação do estudo. A interface web atual explora grafos já exportados; ainda não recebe livremente um novo relato para executar os quatro braços. A [integração contínua](.github/workflows/basic-tests.yml) executa os testes básicos em CPU. A suíte completa passou localmente em 2026-11-03: **254 testes** (`python -m pytest -q`).
 
 ## Limitações e próximos passos
 
-1. Corrigir e testar a consistência entre negação e `HAS_FINDING`, identificada no exemplo sintético.
+1. Avaliar a etapa opcional de consistência em validação por documento antes de incluí-la como padrão: na fixture sintética, ela removeu todos os conflitos, mas reduziu o F1 dos braços k-NN.
 2. Definir um pacote de artefatos redistribuíveis que permita repetir a avaliação externa a partir de um clone público, mantendo as licenças e a proveniência de cada fonte.
 3. Treinar o classificador de relações com candidatos produzidos por predições *out-of-fold* do reconhecedor, mantendo partições por documento. Hoje o k-NN é ajustado sobre candidatos derivados das entidades *gold*.
 4. Comparar n-gramas atuais com ponderação TF-IDF nos folds de desenvolvimento e medir precisão, recall e F1 por classe; reservar teste novo para a confirmação.
-5. Criar uma interface para texto fictício ou público que mostre entidades, relações, grafo e comparação entre abordagens. A interface existente poderá ser adaptada antes de escolher Streamlit ou Gradio.
+5. Depois de consolidar os experimentos, criar uma interface para texto fictício ou público que mostre entidades, relações, grafo e comparação entre abordagens. A interface existente poderá ser adaptada antes de escolher Streamlit ou Gradio.
 
 ## Origem, autoria e licença
 
-O [repositório acadêmico original](https://github.com/MatheuzRuf/projects-mc896) foi desenvolvido por **Matheus Rufino da Silva, Gabriel Thomas Dias de Freitas, Daniel de Sousa Cipriano e Eduardo dos Santos Neres**. O histórico Git preserva a autoria dos commits e os créditos do grupo. A continuação individual começa após o commit acadêmico `8f8c74a`, na branch `portfolio/gabriel-mc896`. A documentação e as correções desta etapa serão identificadas nos commits posteriores. Perfis GitHub dos integrantes serão adicionados quando fornecidos.
+O [repositório acadêmico original](https://github.com/MatheuzRuf/projects-mc896) foi desenvolvido por **[Matheus Rufino da Silva (@MatheuzRuf)](https://github.com/MatheuzRuf), Gabriel Thomas Dias de Freitas, Daniel de Sousa Cipriano e Eduardo dos Santos Neres**. O histórico Git preserva a autoria dos commits e os créditos do grupo. A continuação individual começa após o commit acadêmico `8f8c74a`, na branch `portfolio/gabriel-mc896`. A documentação e as correções desta etapa serão identificadas nos commits posteriores. Perfis GitHub dos demais integrantes serão adicionados quando fornecidos.
 
 Os integrantes autorizaram a continuação e publicação, conforme informado por Gabriel. O código e sua documentação estão sob a [licença MIT](LICENSE), com os quatro integrantes identificados no aviso de autoria. Essa licença **não** altera os direitos sobre os relatos clínicos, metadados, anotações ou outros dados de terceiros: cada fonte mantém suas próprias condições, incluindo as restrições `NC` registradas nos metadados dos artigos. Modelos de linguagem foram usados como apoio a código, documentação e adjudicação, conforme descrito no [relatório do Projeto 2](project2_from_project1/README.md#como-modelos-de-linguagem-foram-usados), e não fazem inferência no pipeline.

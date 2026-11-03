@@ -20,6 +20,6 @@ The patient is a smoker adult. She reported fatigue and chest pain. No nausea wa
 
 No arquivo `demo-output/graph/dictionary-rules/fold-01/graph.jsonl`, a camada de conceitos de `synthetic:000` contém os nós `Patient`, `Factor(smoker)`, `Finding(fatigue)`, `Finding(chest pain)`, `Finding(nausea)`, `Condition(asthma)`, `Finding(back pain)` e `Modifier(no)`. As relações incluem `HAS_FACTOR(Patient, smoker)`, `HAS_CONDITION(Patient, asthma)`, `CAUSES(asthma, back pain)` e `NEGATES(no, nausea)`.
 
-**Falha observada:** o mesmo braço também produziu `HAS_FINDING(Patient, nausea)`, apesar de `NEGATES(no, nausea)`. A negação não está resolvida consistentemente na combinação de regras atual. Corrigir isso mudará as saídas e exigirá nova avaliação; este exemplo permanece como evidência do comportamento da versão auditada.
+**Falha observada na versão acadêmica:** o mesmo braço também produziu `HAS_FINDING(Patient, nausea)`, apesar de `NEGATES(no, nausea)`. A [etapa opcional de consistência](negation-ablation.md) corrige o conflito nessa menção e exporta novas saídas em pasta separada. Este exemplo permanece como evidência do comportamento da versão auditada.
 
 Para inspecionar o manifesto e os registros completos, abra os JSONL gerados no caminho acima. Cada registro de grafo inclui `document_id`, camada, tipo de registro, IDs estáveis, relação ou tipo canônico e proveniência. O código do teste de integração está em [`tests/test_full_study.py`](../tests/test_full_study.py).
