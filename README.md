@@ -58,7 +58,7 @@ Na execução local do braço `dictionary+rules` com 20 iterações máximas, o 
 - **Projeto 2:** usa o Medical Case Report Corpus (MCRC) para desenvolvimento supervisionado e MultiCaRe para avaliação externa. O corpus convertido, modelos e saídas com textos clínicos ficam fora do Git; a [preparação](project2_from_project1/README.md#preparação-dos-dados) registra hashes e a auditoria de sobreposição. [MCRC da Ada Health](https://github.com/adahealth/medical_case_report_corpus).
 - **Separação:** os 53 documentos MCRC foram divididos por documento, com 42 no desenvolvimento e teste fixo separado. A avaliação de entidades exige tipo e offsets exatos; relações exigem endpoints e rótulo exatos. Um teto que recebe entidades *gold* é diagnóstico e não equivale a desempenho fim a fim.
 
-Os números abaixo são os **resultados registrados no trabalho acadêmico** para o snapshot externo de 63 documentos elegíveis. Os artefatos de avaliação não estão versionados, portanto ainda falta uma reprodução pública independente. O snapshot não alcançou o protocolo originalmente previsto de 100 documentos ou 20 relações por classe; `CAUSES` teve nove exemplos. O CRF terminou com valores finitos, mas sem convergir no limite de 250 iterações. Veja [protocolo e resultados](project2_from_project1/docs/external-final-evaluation.md).
+Os números abaixo são os **resultados registrados no trabalho acadêmico** para o snapshot externo de 63 documentos elegíveis. Uma [auditoria local reproduziu a pontuação das predições congeladas](project2_from_project1/docs/portfolio-results-audit.md) com `report.json` idêntico, byte a byte, ao original; o [resumo verificável](project2_from_project1/docs/portfolio-results-evidence.json) publica hashes e métricas sem textos clínicos. Os artefatos de avaliação não estão versionados, portanto um clone público sozinho ainda não permite uma reprodução independente. O snapshot não alcançou o protocolo originalmente previsto de 100 documentos ou 20 relações por classe; `CAUSES` teve nove exemplos. O CRF terminou com valores finitos, mas sem convergir no limite de 250 iterações. Veja [protocolo e resultados](project2_from_project1/docs/external-final-evaluation.md).
 
 | Pipeline | Macro-F1 entidades | Macro-F1 relações | Micro-F1 arestas conceituais |
 | --- | ---: | ---: | ---: |
@@ -80,7 +80,7 @@ python -m pytest project1/tests/test_preprocessing.py project2_from_project1/tes
 ## Limitações e próximos passos
 
 1. Corrigir e testar a consistência entre negação e `HAS_FINDING`, identificada no exemplo sintético.
-2. Publicar um pacote verificável de resultados sem redistribuir textos clínicos indevidamente; conferir os manifestos e as métricas do estudo original.
+2. Definir um pacote de artefatos redistribuíveis que permita repetir a avaliação externa a partir de um clone público, mantendo as licenças e a proveniência de cada fonte.
 3. Treinar o classificador de relações com candidatos produzidos por predições *out-of-fold* do reconhecedor, mantendo partições por documento. Hoje o k-NN é ajustado sobre candidatos derivados das entidades *gold*.
 4. Comparar n-gramas atuais com ponderação TF-IDF nos folds de desenvolvimento e medir precisão, recall e F1 por classe; reservar teste novo para a confirmação.
 5. Criar uma interface para texto fictício ou público que mostre entidades, relações, grafo e comparação entre abordagens. A interface existente poderá ser adaptada antes de escolher Streamlit ou Gradio.

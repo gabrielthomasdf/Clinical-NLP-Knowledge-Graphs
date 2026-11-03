@@ -1,0 +1,103 @@
+{
+  "causes_support": 9,
+  "crf_converged": false,
+  "development_documents": 42,
+  "development_folds": 5,
+  "documents": 63,
+  "external_raw_sha256": "0631a6944de32b6a14c970268fc837bba2f76d42f47ca56ec0f55c36f29efde8",
+  "held_out_mcrc_documents": 11,
+  "limitations": [
+    "Local artifact verification; clinical inputs and predictions are not in public Git.",
+    "The 63-document snapshot did not meet the original 100-document or 20-CAUSES thresholds.",
+    "The CRF produced finite output but did not converge within 250 iterations."
+  ],
+  "metrics": {
+    "crf+knn": {
+      "concept_edge_micro": {
+        "f1": 0.11534637056678819,
+        "precision": 0.29692832764505117,
+        "recall": 0.07157548334018922
+      },
+      "concept_edge_micro_f1": 0.11534637056678819,
+      "entity_macro_f1": 0.24153441249734894,
+      "entity_micro": {
+        "f1": 0.2004253056884636,
+        "precision": 0.4053763440860215,
+        "recall": 0.13312146892655366
+      },
+      "relation_macro_f1": 0.11231285204587889,
+      "relation_micro": {
+        "f1": 0.11306291919514531,
+        "precision": 0.28827361563517917,
+        "recall": 0.07032181168057211
+      }
+    },
+    "crf+rules": {
+      "concept_edge_micro": {
+        "f1": 0.09410892923304927,
+        "precision": 0.47388059701492535,
+        "recall": 0.052241875771287534
+      },
+      "concept_edge_micro_f1": 0.09410892923304927,
+      "entity_macro_f1": 0.24153441249734894,
+      "entity_micro": {
+        "f1": 0.2004253056884636,
+        "precision": 0.4053763440860215,
+        "recall": 0.13312146892655366
+      },
+      "relation_macro_f1": 0.10775138746416264,
+      "relation_micro": {
+        "f1": 0.09077912794853465,
+        "precision": 0.45195729537366547,
+        "recall": 0.05045689312673818
+      }
+    },
+    "dictionary+knn": {
+      "concept_edge_micro": {
+        "f1": 0.07239819004524888,
+        "precision": 0.09308338720103426,
+        "recall": 0.059234882764294526
+      },
+      "concept_edge_micro_f1": 0.07239819004524888,
+      "entity_macro_f1": 0.13730525804956717,
+      "entity_micro": {
+        "f1": 0.13812614411715757,
+        "precision": 0.1306263770853006,
+        "recall": 0.14653954802259886
+      },
+      "relation_macro_f1": 0.06007575604063089,
+      "relation_micro": {
+        "f1": 0.06178440267876431,
+        "precision": 0.06770833333333333,
+        "recall": 0.05681366706396504
+      }
+    },
+    "dictionary+rules": {
+      "concept_edge_micro": {
+        "f1": 0.05784681306909481,
+        "precision": 0.08288564850345356,
+        "recall": 0.0444261620732209
+      },
+      "concept_edge_micro_f1": 0.05784681306909481,
+      "entity_macro_f1": 0.13730525804956717,
+      "entity_micro": {
+        "f1": 0.13812614411715757,
+        "precision": 0.1306263770853006,
+        "recall": 0.14653954802259886
+      },
+      "relation_macro_f1": 0.04575694202393401,
+      "relation_micro": {
+        "f1": 0.04942189979596464,
+        "precision": 0.05755015839493136,
+        "recall": 0.04330552244735797
+      }
+    }
+  },
+  "models_manifest_sha256": "f0c15c96e6c8d3370dd0cef6deb1123008ed0de7d1d92bba61fa5222a7d0961d",
+  "report_sha256": "aa9a15d4c545c58a44e673519e2ec380f469882767c128051b1a14c4ea8825f2",
+  "snapshot_status": "provisional_snapshot_user_requested",
+  "status": "verified_local_frozen_evaluation",
+  "verified_evaluation_artifacts": 18,
+  "verified_model_artifacts": 5,
+  "verified_model_code_files": 64
+}
