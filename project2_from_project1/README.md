@@ -558,16 +558,17 @@ próprio projeto.
 ## Resultados
 
 Nos cinco folds dos 42 documentos de desenvolvimento, o semi-Markov CRF
-superou o dicionário em macro-F1 estrita de entidades (`0,285 ± 0,044` contra
+superou o dicionário em macro-F1 estrita de entidades (`0,286 ± 0,043` contra
 `0,121 ± 0,013`). O ganho veio principalmente da redução de previsões
 espúrias, embora o CRF tenha apresentado menor revocação e nenhum dos cinco
 modelos finais tenha convergido dentro do limite de 250 iterações.
 
 Na matriz de relações de desenvolvimento, o melhor braço end-to-end foi
-**CRF + k-NN**, com macro-F1 `0,157 ± 0,039`. O teto diagnóstico
+**CRF + k-NN**, com macro-F1 `0,156 ± 0,038`. O teto diagnóstico
 **gold-entity + k-NN** chegou a `0,517 ± 0,039`, mostrando que o reconhecimento
-de entidades domina o erro da cascata: entre 84% e 90% das relações gold
-perdidas vêm de endpoints ausentes ou incorretos.
+de entidades domina o erro da cascata. O [relatório reproduzido](docs/development-cross-validation-results.md)
+e o [resumo verificável](docs/development-cv-results-evidence.json) registram
+o protocolo, os hashes e as métricas completas sem textos clínicos.
 
 Na avaliação externa entregue, sobre 63 documentos elegíveis do MultiCaRe, os
 resultados estritos foram:

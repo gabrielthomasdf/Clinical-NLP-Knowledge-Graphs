@@ -1,0 +1,238 @@
+{
+    "schema_version":  1,
+    "status":  "verified_local_nested_development_evaluation",
+    "completed_on":  "2026-11-04",
+    "code_commit":  "84643379d9e24505ae47d09230efb0d420a0f89a",
+    "scope":  {
+                  "interpretation":  "Exploratory nested cross-validation on development documents.",
+                  "development_documents":  42,
+                  "outer_folds":  5,
+                  "inner_folds":  3,
+                  "held_out_test_partition_read":  false
+              },
+    "configuration":  {
+                          "crf":  {
+                                      "inner_folds":  3,
+                                      "l2_grid":  [
+                                                      0.01,
+                                                      0.1,
+                                                      1.0,
+                                                      10.0
+                                                  ],
+                                      "max_iterations":  250
+                                  },
+                          "folds":  [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                          "study_version":  "end-to-end-study-v1",
+                          "threads_per_worker":  1,
+                          "workers":  1
+                      },
+    "inputs":  {
+                   "adjudication_sha256":  "d09426da991f93ea74d83042f121e66ae1326b485754fba800cdd2b4ae55c7c1",
+                   "corpus_sha256":  "28844ee5c2770024ace12c95026c03e59bd0708e34a16ed05b9bc418799b8050",
+                   "partition_manifest_sha256":  "cbf62ffce4b2efac1736e627ee27e9fcd3274621e7cb07f2c208f1ceee5dff61",
+                   "projection_output_sha256":  "3aa7e9b7d088fa20c50ac189fb6ca489428548b672f0e0c3ed75b3e5e4489ef5"
+               },
+    "crf_outer_runs":  {
+                           "fold-01":  {
+                                           "selected_l2":  0.1,
+                                           "status":  "completed",
+                                           "converged":  false,
+                                           "iterations":  250,
+                                           "manifest_sha256":  "9dd4b516f750f24caed9bfdcebe6f8e5c4f57f0110557cb2a3280195fc92d4c1"
+                                       },
+                           "fold-02":  {
+                                           "selected_l2":  0.1,
+                                           "status":  "completed",
+                                           "converged":  false,
+                                           "iterations":  250,
+                                           "manifest_sha256":  "cdc76c8f31fe70ab5116f032e010b6624810992a385182017fe8b1fca486ccb9"
+                                       },
+                           "fold-03":  {
+                                           "selected_l2":  1.0,
+                                           "status":  "completed",
+                                           "converged":  false,
+                                           "iterations":  250,
+                                           "manifest_sha256":  "2c525ef4342bbc6801898fe32092a3881ce0dc8f7807e397a7b9a09919a0618d"
+                                       },
+                           "fold-04":  {
+                                           "selected_l2":  0.1,
+                                           "status":  "completed",
+                                           "converged":  false,
+                                           "iterations":  250,
+                                           "manifest_sha256":  "43c460d1f89c3235e96974d343d142a96b9a82580e24ae257f141d354ed26d19"
+                                       },
+                           "fold-05":  {
+                                           "selected_l2":  0.1,
+                                           "status":  "completed",
+                                           "converged":  false,
+                                           "iterations":  250,
+                                           "manifest_sha256":  "c1dfbc2bae860c11e459b45efd3ac11e73804d94175dc0ef7bd5ad6bd7eff5a4"
+                                       }
+                       },
+    "metrics":  {
+                    "dictionary+rules":  {
+                                             "entity_macro_f1":  {
+                                                                     "max":  0.13552869968462944,
+                                                                     "mean":  0.12080241100741093,
+                                                                     "min":  0.10524167192746664,
+                                                                     "std":  0.012684468798076654
+                                                                 },
+                                             "entity_micro_f1":  {
+                                                                     "max":  0.16859344894026976,
+                                                                     "mean":  0.148603513866604,
+                                                                     "min":  0.12850812407680945,
+                                                                     "std":  0.016359987892457056
+                                                                 },
+                                             "relation_macro_f1":  {
+                                                                       "mean":  0.040413221355773285,
+                                                                       "std":  0.0069162849047970845
+                                                                   },
+                                             "relation_micro_f1":  {
+                                                                       "mean":  0.05374759912942274,
+                                                                       "std":  0.008976188890855942
+                                                                   },
+                                             "concept_edge_f1":  {
+                                                                     "mean":  0.07991326551806048,
+                                                                     "std":  0.009694801637805377
+                                                                 },
+                                             "concept_edge_pooled":  {
+                                                                         "f1":  0.07994186046511628,
+                                                                         "precision":  0.08011653313911143,
+                                                                         "predicted":  1373,
+                                                                         "recall":  0.07976794778825236,
+                                                                         "support":  1379,
+                                                                         "true_positive":  110
+                                                                     }
+                                         },
+                    "dictionary+knn":  {
+                                           "entity_macro_f1":  {
+                                                                   "max":  0.13552869968462944,
+                                                                   "mean":  0.12080241100741093,
+                                                                   "min":  0.10524167192746664,
+                                                                   "std":  0.012684468798076654
+                                                               },
+                                           "entity_micro_f1":  {
+                                                                   "max":  0.16859344894026976,
+                                                                   "mean":  0.148603513866604,
+                                                                   "min":  0.12850812407680945,
+                                                                   "std":  0.016359987892457056
+                                                               },
+                                           "relation_macro_f1":  {
+                                                                     "mean":  0.06320231680381637,
+                                                                     "std":  0.009491076725641619
+                                                                 },
+                                           "relation_micro_f1":  {
+                                                                     "mean":  0.08012757114943034,
+                                                                     "std":  0.025473415553079908
+                                                                 },
+                                           "concept_edge_f1":  {
+                                                                   "mean":  0.12462148188602158,
+                                                                   "std":  0.026563361529535794
+                                                               },
+                                           "concept_edge_pooled":  {
+                                                                       "f1":  0.11941231634885902,
+                                                                       "precision":  0.10494505494505495,
+                                                                       "predicted":  1820,
+                                                                       "recall":  0.13850616388687453,
+                                                                       "support":  1379,
+                                                                       "true_positive":  191
+                                                                   }
+                                       },
+                    "crf+rules":  {
+                                      "entity_macro_f1":  {
+                                                              "max":  0.32116442697768766,
+                                                              "mean":  0.2856780437302948,
+                                                              "min":  0.21850215781503213,
+                                                              "std":  0.04340767429227223
+                                                          },
+                                      "entity_micro_f1":  {
+                                                              "max":  0.2784090909090909,
+                                                              "mean":  0.24051150971363736,
+                                                              "min":  0.19932432432432434,
+                                                              "std":  0.03142305016547369
+                                                          },
+                                      "relation_macro_f1":  {
+                                                                "mean":  0.13636214540186029,
+                                                                "std":  0.03137949067076809
+                                                            },
+                                      "relation_micro_f1":  {
+                                                                "mean":  0.13300536058864204,
+                                                                "std":  0.042217369055425606
+                                                            },
+                                      "concept_edge_f1":  {
+                                                              "mean":  0.14822695508554062,
+                                                              "std":  0.03581405170443977
+                                                          },
+                                      "concept_edge_pooled":  {
+                                                                  "f1":  0.149453219927096,
+                                                                  "precision":  0.4606741573033708,
+                                                                  "predicted":  267,
+                                                                  "recall":  0.08919506889050036,
+                                                                  "support":  1379,
+                                                                  "true_positive":  123
+                                                              }
+                                  },
+                    "crf+knn":  {
+                                    "entity_macro_f1":  {
+                                                            "max":  0.32116442697768766,
+                                                            "mean":  0.2856780437302948,
+                                                            "min":  0.21850215781503213,
+                                                            "std":  0.04340767429227223
+                                                        },
+                                    "entity_micro_f1":  {
+                                                            "max":  0.2784090909090909,
+                                                            "mean":  0.24051150971363736,
+                                                            "min":  0.19932432432432434,
+                                                            "std":  0.03142305016547369
+                                                        },
+                                    "relation_macro_f1":  {
+                                                              "mean":  0.1555010126665966,
+                                                              "std":  0.0382381489639612
+                                                          },
+                                    "relation_micro_f1":  {
+                                                              "mean":  0.17089708949058272,
+                                                              "std":  0.034006987180230576
+                                                          },
+                                    "concept_edge_f1":  {
+                                                            "mean":  0.2048206091873276,
+                                                            "std":  0.029927739936299574
+                                                        },
+                                    "concept_edge_pooled":  {
+                                                                "f1":  0.20702936928261917,
+                                                                "precision":  0.30802292263610315,
+                                                                "predicted":  698,
+                                                                "recall":  0.1559100797679478,
+                                                                "support":  1379,
+                                                                "true_positive":  215
+                                                            }
+                                }
+                },
+    "diagnostic_relation_ceilings":  {
+                                         "gold+rules":  {
+                                                            "mean":  0.34483513427651574,
+                                                            "std":  0.07619656458204879
+                                                        },
+                                         "gold+knn":  {
+                                                          "mean":  0.5173662759686055,
+                                                          "std":  0.039348895041770374
+                                                      }
+                                     },
+    "artifact_hashes":  {
+                            "root_manifest":  "a5115b5c8f2ed67b8bf2a9abee06e58b2ded9be5391f150deaba24838464d908",
+                            "entity_summary":  "197cc8c5f8eb08924a9126376872f1b8b713ab74900da3706eab3e2303035aef",
+                            "relation_summary":  "0e775e28270c4ff95b0c05ab46c3dc9bbf1930eed512002d330ce073b09dfd5b",
+                            "graph_summary":  "ba3df44543a0a8ccd17d88a18cb49ac2b589459b93feaaf423c1b16cc3141188"
+                        },
+    "limitations":  [
+                        "Clinical inputs, predictions, and trained model artifacts remain outside public Git.",
+                        "All five CRF outer fits produced finite outputs but reached the 250-iteration limit without convergence.",
+                        "These are exploratory development-fold results and are not a new blind external evaluation.",
+                        "The held-out MCRC test partition was not read."
+                    ]
+}

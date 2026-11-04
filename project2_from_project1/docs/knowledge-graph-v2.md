@@ -1,5 +1,10 @@
 # Knowledge Graph supervisionado (JSONL v2)
 
+> **Snapshot acadêmico histórico.** Uma nova execução consolidada na continuação
+> individual, usando o corpus reconciliado e o commit `8464337`, produziu valores
+> ligeiramente diferentes. Use o [relatório reproduzido](development-cross-validation-results.md)
+> e o [resumo verificável](development-cv-results-evidence.json) para os números atuais.
+
 O grafo é projetado **depois** das relações, a partir de previsões
 end-to-end congeladas. O contrato canônico é o JSONL v2 de
 [`supervised-contracts.md`](supervised-contracts.md). CSV e NetworkX são

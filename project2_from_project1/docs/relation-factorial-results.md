@@ -1,5 +1,10 @@
 # Matriz fatorial de relações end-to-end
 
+> **Snapshot acadêmico histórico.** Uma nova execução consolidada na continuação
+> individual, usando o corpus reconciliado e o commit `8464337`, produziu valores
+> ligeiramente diferentes. Use o [relatório reproduzido](development-cross-validation-results.md)
+> e o [resumo verificável](development-cv-results-evidence.json) para os números atuais.
+
 **Status:** exploratório. Os resultados usam os cinco folds de desenvolvimento,
 sem ler o teste MCRC consumido. As linhas `gold+*` são **teto diagnóstico** com
 entidades gold e não são pipelines end-to-end.

@@ -81,6 +81,19 @@ Os números abaixo são os **resultados registrados no trabalho acadêmico** par
 | CRF + regras | 0,2415 | 0,1078 | 0,0941 |
 | CRF + k-NN | 0,2415 | 0,1123 | 0,1153 |
 
+### Reprodução nos folds de desenvolvimento
+
+Na continuação individual, o estudo completo foi reexecutado em 2026-11-04 sobre os 42 documentos de desenvolvimento, com cinco folds externos e seleção do CRF em três folds internos. A partição fixa de teste do MCRC não foi lida. Os valores abaixo são média ± desvio padrão entre os cinco folds.
+
+| Pipeline | Macro-F1 entidades | Macro-F1 relações | F1 arestas conceituais |
+| --- | ---: | ---: | ---: |
+| Dicionário + regras | 0,1208 ± 0,0127 | 0,0404 ± 0,0069 | 0,0799 ± 0,0097 |
+| Dicionário + k-NN | 0,1208 ± 0,0127 | 0,0632 ± 0,0095 | 0,1246 ± 0,0266 |
+| CRF + regras | 0,2857 ± 0,0434 | 0,1364 ± 0,0314 | 0,1482 ± 0,0358 |
+| CRF + k-NN | 0,2857 ± 0,0434 | 0,1555 ± 0,0382 | 0,2048 ± 0,0299 |
+
+Os cinco ajustes externos do CRF produziram valores finitos, mas atingiram o limite de 250 iterações sem convergir. O [relatório de validação cruzada](project2_from_project1/docs/development-cross-validation-results.md) descreve o protocolo e os limites; o [resumo verificável](project2_from_project1/docs/development-cv-results-evidence.json) registra hashes, configurações e métricas sem textos clínicos. Esses valores exploratórios de desenvolvimento não são diretamente comparáveis à avaliação externa acadêmica acima.
+
 Os valores de F1 da fixture sintética medem apenas a integração com dados artificiais. Não devem ser comparados com os resultados acima.
 
 ## Testes e estrutura

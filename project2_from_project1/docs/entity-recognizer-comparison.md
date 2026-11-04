@@ -1,5 +1,10 @@
 # Comparação exploratória dos reconhecedores de entidades
 
+> **Snapshot acadêmico histórico.** Uma nova execução consolidada na continuação
+> individual, usando o corpus reconciliado e o commit `8464337`, produziu valores
+> ligeiramente diferentes. Use o [relatório reproduzido](development-cross-validation-results.md)
+> e o [resumo verificável](development-cv-results-evidence.json) para os números atuais.
+
 **Status:** exploratório. Os resultados usam somente os cinco folds dos 42
 documentos de desenvolvimento. O teste MCRC consumido não foi lido, e a
 conclusão final depende do novo teste externo (tickets 12 e 13). A projeção
