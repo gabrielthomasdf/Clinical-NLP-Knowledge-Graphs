@@ -27,6 +27,20 @@ flowchart LR
 
 As quatro combinações `dictionary+rules`, `dictionary+knn`, `crf+rules` e `crf+knn` compartilham contratos de predição. O grafo supervisionado distingue `Patient`, `Condition`, `Finding`, `Factor` e `Modifier`; suas relações avaliadas são `HAS_CONDITION`, `HAS_FINDING`, `HAS_FACTOR`, `NEGATES` e `CAUSES`. O [Projeto 1](project1/README.md) oferece ainda busca booleana, ranking TF-IDF, extração por regex e um grafo legado mais detalhado. As [decisões arquiteturais](project2_from_project1/docs/adr/) explicam a separação dos projetos e o esquema versionado.
 
+## Demonstração interativa
+
+<p align="center">
+  <img src="project1/assets/portfolio/portfolio-demo.gif" alt="Demonstração interativa: entidades, relações, grafo e resultados experimentais" width="900">
+</p>
+
+A aplicação recebe um relato fictício ou público em inglês e executa ao vivo o pipeline clássico `dictionary+rules`, mostrando entidades, relações e o grafo construído. A aba de comparação apresenta separadamente as métricas acadêmicas auditadas das quatro abordagens; elas não são recalculadas sobre o texto digitado.
+
+```bash
+mc896-app
+```
+
+O navegador abre em `http://localhost:8501`. Use apenas texto fictício ou público. A [captura estática da aplicação](project1/assets/portfolio/app-overview.png) também está disponível para visualização rápida.
+
 ## Executar sem dados clínicos
 
 Requer Python 3.10 ou superior. A execução sintética usa CPU e cria 12 relatos fictícios determinísticos; serve para verificar a integração, **não** para estimar desempenho clínico.
@@ -75,7 +89,7 @@ Os valores de F1 da fixture sintética medem apenas a integração com dados art
 python -m pytest project1/tests/test_preprocessing.py project2_from_project1/tests/test_preprocessing.py project2_from_project1/tests/test_entities.py project2_from_project1/tests/test_relations.py project2_from_project1/tests/test_graph_build.py -q
 ```
 
-`project1/` contém o pipeline clássico, busca e visualização local. `project2_from_project1/` contém contratos, extração supervisionada, avaliação, scripts e documentação do estudo. A interface web atual explora grafos já exportados; ainda não recebe livremente um novo relato para executar os quatro braços. A [integração contínua](.github/workflows/basic-tests.yml) executa os testes básicos em CPU. A suíte completa passou localmente em 2026-11-03: **254 testes** (`python -m pytest -q`).
+`project1/` contém o pipeline clássico, busca e visualização local. `project2_from_project1/` contém contratos, extração supervisionada, avaliação, scripts e documentação do estudo. A aplicação Streamlit recebe texto fictício ou público e executa ao vivo a abordagem clássica; CRF e k-NN aparecem somente na comparação de resultados auditados, pois exigem modelos treinados. A [integração contínua](.github/workflows/basic-tests.yml) executa os testes básicos, o teste headless da interface e a demonstração sintética em CPU. A suíte completa passou localmente em 2026-11-03: **256 testes** (`python -m pytest -q`).
 
 ## Limitações e próximos passos
 
@@ -83,7 +97,7 @@ python -m pytest project1/tests/test_preprocessing.py project2_from_project1/tes
 2. Definir um procedimento de aquisição que permita repetir a avaliação externa a partir das fontes autorizadas, mantendo as licenças e a proveniência de cada artigo sem redistribuir texto clínico neste repositório.
 3. Treinar o classificador de relações com candidatos produzidos por predições *out-of-fold* do reconhecedor, mantendo partições por documento. Hoje o k-NN é ajustado sobre candidatos derivados das entidades *gold*.
 4. Comparar n-gramas atuais com ponderação TF-IDF nos folds de desenvolvimento e medir precisão, recall e F1 por classe; reservar teste novo para a confirmação.
-5. Depois de consolidar os experimentos, criar uma interface para texto fictício ou público que mostre entidades, relações, grafo e comparação entre abordagens. A interface existente poderá ser adaptada antes de escolher Streamlit ou Gradio.
+5. Exportar modelos supervisionados redistribuíveis e integrá-los à aplicação para comparar as quatro abordagens sobre o mesmo texto. Hoje somente `dictionary+rules` executa inferência ao vivo.
 
 ## Origem, autoria e licença
 

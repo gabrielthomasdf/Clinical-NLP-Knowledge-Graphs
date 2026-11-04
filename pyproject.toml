@@ -11,6 +11,7 @@ dynamic = ["dependencies"]
 
 [project.scripts]
 mc896-demo = "project2_from_project1.scripts.portfolio_demo:main"
+mc896-app = "project1.scripts.run_portfolio_app:main"
 
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements.txt"] }

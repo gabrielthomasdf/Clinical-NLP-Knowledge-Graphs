@@ -8,3 +8,4 @@ pytest
 datasets
 duckdb>=1.5,<2
 torch==2.14.1
+streamlit[charts]>=1.50,<2
