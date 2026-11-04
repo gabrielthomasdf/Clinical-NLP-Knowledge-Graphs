@@ -1,4 +1,4 @@
-# Extração de informação clínica e grafos de conhecimento | MC896
+# Clinical NLP Knowledge Graphs | MC896
 
 Projeto acadêmico de Processamento de Linguagem Natural (MC896, Unicamp) para transformar relatos de caso em entidades, relações e um grafo consultável. Esta cópia preserva o trabalho em grupo e serve de base para uma continuação individual de Gabriel Thomas Dias de Freitas. O marco e as alterações dessa continuação são identificados por commits posteriores ao projeto original.
 
@@ -8,11 +8,11 @@ Projeto acadêmico de Processamento de Linguagem Natural (MC896, Unicamp) para t
 
 The original academic project and its core NLP pipelines were developed collectively by the four-person MC896 team. My post-fork work, recorded in the repository history, focused on turning that foundation into a reproducible portfolio project:
 
-- built the local [Streamlit demonstration](#demonstração-interativa) for inspecting entities, relations, graphs, and experimental results ([`8464337`](https://github.com/gabrielthomasdf/projects-mc896/commit/84643379d9e24505ae47d09230efb0d420a0f89a));
-- packaged a deterministic, one-command [synthetic execution](#executar-sem-dados-clínicos) that does not require clinical datasets ([`5eb97e4`](https://github.com/gabrielthomasdf/projects-mc896/commit/5eb97e4467874b231f160890b47a6d3774d7b652));
-- reran and consolidated the five-fold nested cross-validation study, then published machine-checkable evidence and an artifact auditor ([`a20a6d2`](https://github.com/gabrielthomasdf/projects-mc896/commit/a20a6d25adca60813731d67b9727be8caf790c87));
-- organized and audited experimental results, source licenses, and the sanitized public history ([`a41f589`](https://github.com/gabrielthomasdf/projects-mc896/commit/a41f589e506df01a1e1efb86340ccc616e731b35), [`9a48458`](https://github.com/gabrielthomasdf/projects-mc896/commit/9a48458ab58dde3084ff8a2eb3caeb072d596747), [`b791405`](https://github.com/gabrielthomasdf/projects-mc896/commit/b7914057b0596861fc63d6245e4a4530076ed743)); and
-- expanded the architecture, reproduction, limitations, authorship, and data-provenance documentation ([`b2813f6`](https://github.com/gabrielthomasdf/projects-mc896/commit/b2813f6e1df0f88f76f2dd35b18d07f30a79fa67)).
+- built the local [Streamlit demonstration](#demonstração-interativa) for inspecting entities, relations, graphs, and experimental results ([`8464337`](https://github.com/gabrielthomasdf/Clinical-NLP-Knowledge-Graphs/commit/84643379d9e24505ae47d09230efb0d420a0f89a));
+- packaged a deterministic, one-command [synthetic execution](#executar-sem-dados-clínicos) that does not require clinical datasets ([`5eb97e4`](https://github.com/gabrielthomasdf/Clinical-NLP-Knowledge-Graphs/commit/5eb97e4467874b231f160890b47a6d3774d7b652));
+- reran and consolidated the five-fold nested cross-validation study, then published machine-checkable evidence and an artifact auditor ([`a20a6d2`](https://github.com/gabrielthomasdf/Clinical-NLP-Knowledge-Graphs/commit/a20a6d25adca60813731d67b9727be8caf790c87));
+- organized and audited experimental results, source licenses, and the sanitized public history ([`a41f589`](https://github.com/gabrielthomasdf/Clinical-NLP-Knowledge-Graphs/commit/a41f589e506df01a1e1efb86340ccc616e731b35), [`9a48458`](https://github.com/gabrielthomasdf/Clinical-NLP-Knowledge-Graphs/commit/9a48458ab58dde3084ff8a2eb3caeb072d596747), [`b791405`](https://github.com/gabrielthomasdf/Clinical-NLP-Knowledge-Graphs/commit/b7914057b0596861fc63d6245e4a4530076ed743)); and
+- expanded the architecture, reproduction, limitations, authorship, and data-provenance documentation ([`b2813f6`](https://github.com/gabrielthomasdf/Clinical-NLP-Knowledge-Graphs/commit/b2813f6e1df0f88f76f2dd35b18d07f30a79fa67)).
 
 The [original team, repository provenance, and licensing](#origem-autoria-e-licença) remain fully credited. This section describes only the individual extension developed after the academic group project.
 
